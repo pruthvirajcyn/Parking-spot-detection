@@ -16,6 +16,7 @@ that was able to detect parking spots in poor weather conditions, like snow. To 
   - [Image collection](#image-collection)
   - [Augmentations](#augmentations)
   - [Annotations](#annotations)
+  - [Training](#training)
 - [Results](#results)
 
 ## General info
@@ -44,7 +45,7 @@ Original             |  Snow augmentation         |  Rain augmentation
 ### Annotations
 ![Label Studio process](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/labelstudio.png)
 
-
+### Training
 ```python
 !python train.py --weights "/content/drive/MyDrive/6156/check_freeze/check.pt" --data "/content/data.yaml" --workers 4 --batch-size {batch_size} --img 640 --cfg cfg/training/yolov7.yaml --name yolov7 --epochs {epochs} --hyp data/hyp.scratch.p5.yaml --freeze 50
 ```
