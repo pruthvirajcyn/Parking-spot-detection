@@ -37,7 +37,7 @@ By doing this, the model was able to learn on new weather conditions that it had
 security camera footage of parking lots that also had views of enough parking spots was difficult to find. While there were a few livestreams and videos on Youtube
 that our team was able to scrape frames from using a script, the augmentation process was faster as a proof of concept.
 
-Original             |  Snow augmentation         |  Rain augmentation
+   Pre augmentation         |  Snow augmentation         |  Rain augmentation
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/normal1.png)  | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snowaugment1.png)  |  ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rainaugment1.png)
 
