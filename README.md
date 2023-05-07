@@ -24,7 +24,7 @@
 ## General info
 Parking spot detection is not new in practice, but a popular dataset that is used only has sunny, cloudy, and rain conditions.
 The purpose of this project was to look at how well a model trained on the PKLot dataset performed on real world examples, as well as train a model
-that was able to detect parking spots in poor weather conditions, like snow. To accomplish this our team needed a few essential components:
+that was able to detect parking spots in poor weather conditions, like snow. To accomplish this our team required a few essential components:
 1. A dataset
 2. A pretrained model
 3. Augmentations
@@ -32,7 +32,7 @@ that was able to detect parking spots in poor weather conditions, like snow. To 
 5. A way to label these new images
 
 ## Dataset
-Here we talk about the PKLot dataset
+<a href="https://www.inf.ufpr.br/lesoliveira/download/pklot-readme.pdf">The PKLot dataset</a> consists of 12,417 surveillance footage images captured from two parking lots, using three different cameras. There are many ways to download the dataset, but we used <a href="https://universe.roboflow.com/brad-dwyer/pklot-1tros/dataset/2">Roboflow's</a> dataset since it had an option to download the YOLOv7 annotations and YAML configuration files.
 
 ## Technologies used
 - <a href="https://colab.research.google.com/">Google Colab</a>
@@ -42,17 +42,17 @@ Here we talk about the PKLot dataset
 
 ## Process
 ### Image collection
-Additional images were collected through manually image search using common sources like Google, Pinterest, and other large image databases, and by using <a href="https://abhitronix.github.io/vidgear/v0.3.0-stable/">VidGear</a>. Vidgear is a high-performance video processing Python library that provide different "Gears" that are made for different video functionality. The CamGear "Gear" was used due to its ability to capture not only uploaded videos to Youtube, but also live streams such as the <a href="https://www.youtube.com/watch?v=c38K8IsYnB0">SUU Parking Lot Construction Camera</a> which was essential to capture different frames of snow covered parking lots.
+Additional images were collected through manually image search using common sources like Google, Pinterest, and other large image databases, and by using <a href="https://abhitronix.github.io/vidgear/v0.3.0-stable/">VidGear</a>. Vidgear is a high-performance video processing Python library that provide different "Gears" that are made for different video functionality. The CamGear "Gear" was used due to its ability to capture not only uploaded videos to Youtube, but also live streams such as the <a href="https://www.youtube.com/watch?v=c38K8IsYnB0">SUU Parking Lot Construction Camera</a>, which was essential to capturing frames of snow covered parking lots.
 
 ### Annotations
-Additional mages that were collected had to be annotated to provide the correct class for each parking spot, either space-empty or space-occupied, the same classes from the PKLot dataset.
+Additional images that were collected had to be annotated to provide the correct class for each parking spot, either space-empty or space-occupied, the same classes from the PKLot dataset.
 This was accomplished by using <a href="https://labelstud.io/">Label Studio</a>, an open source data labeling tool. This provided a user friendly method of annotating
 the ~150 additional images that were collected and a way to export the COCO formatted bounding box coordinates needed for the model.
 <br><br>
 ![Label Studio process](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/labelstudio.png)
 
 ### Augmentations
-Images were passed through an augmentation pipeline that added snow and rain effects to the original images. The <a href="https://github.com/UjjwalSaxena/Automold--Road-Augmentation-Library">Automold</a> library was chosen because it was designed to introduce real world scenarios for training neural networks of autonomous vehicles. This library provides many real world example augmentations, but our focus was only on snow and rain. The PKLot dataset as well as the non-snow images that were collected were passed through the augmentation pipeline, exponentially increasing the size of our dataset.
+Images were passed through an augmentation pipeline that added snow and rain effects to the original images. The <a href="https://github.com/UjjwalSaxena/Automold--Road-Augmentation-Library">Automold</a> library was chosen because it was designed to introduce real world scenarios for training neural networks of autonomous vehicles. This library provides many real world example augmentations, but our focus was only on snow and rain. The PKLot dataset, as well as the non-snow images that were collected, were passed through the augmentation pipeline exponentially increasing the size of our dataset.
 
    Pre augmentation         |  Snow augmentation         |  Rain augmentation
 :-------------------------:|:-------------------------:|:-------------------------:
@@ -61,9 +61,9 @@ Images were passed through an augmentation pipeline that added snow and rain eff
 ### Training
 Training was done using Google Colab, allowing each member of the group to have access to the model and weights, as well as access to a GPU. Initially, we attempted to train the YOLOv7 model directly on the PKLot dataset. However, we encountered some difficulties with this approach and found that the model was not learning effectively. To address this, we decided to freeze the first 50 layers of the YOLOv7 model during training. This approach helped to stabilize the training process and improve the overall performance of the model. Freezing the first 50 layers of the model sped up the training process significantly by allowing us to focus on training the later layers of the model, which are responsible for object detection. By using this modified YOLOv7 model, we were able to speed up the training of the model.
 <br>
-Since we were using Google Colab, we encountered issues with session timeouts, running out of GPU, and other cloud based problems. To combat this, the YOLOv7 train.py was modified to save the best.pt and last.pt weight files to a Google Drive so that progress was not lost. This also allowed our team to read from the Google Drive last.pt and best.pt files for retraining and inferencing. Batch size and number of epochs were set prior to each training session to maximize the use of the GPU.
+Since we were using Google Colab, we encountered issues with session timeouts, running out of GPU, and other cloud based problems. To combat this, the YOLOv7 train.py was modified to save the best.pt and last.pt weight files to a Google Drive folder so that progress was not lost. This also allowed our team to use the Google Drive last.pt and best.pt files for retraining and inferencing. Batch size and number of epochs were set prior to each training session to maximize the use of the GPU.
 <br><br>
-The code below shows the cell used for training with the freeze flag set to 50.
+The code below shows the cell used for training with the freeze flag set to 50 (layers).
 ```python
 !python train.py --weights "/content/drive/MyDrive/6156/weights/last.pt" --data "/content/data.yaml" --workers 4 --batch-size {batch_size} --img 640 --cfg cfg/training/yolov7.yaml --name yolov7 --epochs {epochs} --hyp data/hyp.scratch.p5.yaml --freeze 50
 ```
