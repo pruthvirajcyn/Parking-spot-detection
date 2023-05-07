@@ -18,7 +18,7 @@
 - [Pre-augmented model issues](#pre-augmented-model-issues)
 - [Results](#results)
   - [Metrics](#metrics)
-  - [Inferenced images](#inferenced-images)
+  - [Inferred images](#inferred-images)
 - [Conclusion](#conclusion)
 
 ## General info
@@ -61,7 +61,7 @@ Images were passed through an augmentation pipeline that added snow and rain eff
 ### Training
 Training was done using Google Colab, allowing each member of the group to have access to the model and weights, as well as access to a GPU. Initially, we attempted to train the YOLOv7 model directly on the PKLot dataset. However, we encountered some difficulties with this approach and found that the model was not learning effectively. To address this, we decided to freeze the first 50 layers of the YOLOv7 model during training. This approach helped to stabilize the training process and improve the overall performance of the model. Freezing the first 50 layers of the model sped up the training process significantly by allowing us to focus on training the later layers of the model, which are responsible for object detection. By using this modified YOLOv7 model, we were able to speed up the training of the model.
 <br>
-Since we were using Google Colab, we encountered issues with session timeouts, running out of GPU, and other cloud based problems. To combat this, the YOLOv7 train.py was modified to save the best.pt and last.pt weight files to a Google Drive folder so that progress was not lost. This also allowed our team to use the Google Drive last.pt and best.pt files for retraining and inferencing. Batch size and number of epochs were set prior to each training session to maximize the use of the GPU.
+Since we were using Google Colab, we encountered issues with session timeouts, running out of GPU, and other cloud based problems. To combat this, the YOLOv7 train.py was modified to save the best.pt and last.pt weight files to a Google Drive folder so that progress was not lost. This also allowed our team to use the Google Drive last.pt and best.pt files for retraining and inferring. Batch size and number of epochs were set prior to each training session to maximize the use of the GPU.
 <br><br>
 The code below shows the cell used for training with the freeze flag set to 50 (layers).
 ```python
@@ -69,14 +69,14 @@ The code below shows the cell used for training with the freeze flag set to 50 (
 ```
 
 ## Pre-augmented model issues
-The initial model trained on the PKLot dataset performed very well on the holdout dataset, but when used for inferencing with clear weather there were obvious problems. We believe that the limited camera angles, while great for this parking lot, was not representative of other parking lots that we were able to find. Our team believes that a camera mounted higher and with a smaller <a href="https://ipvm.com/reports/testing-camera-height">angle of incidence</a> provides a better view of a parking lot, thus able to determine which spots are empty and which are occupied. Unfortunately, not all locations are able to get cameras high enough to accomplish this, so additionaly training is needed to account for these angles.
+The initial model trained on the PKLot dataset performed very well on the holdout dataset, but when used for inferring with clear weather there were obvious problems. We believe that the limited camera angles, while great for this parking lot, was not representative of other parking lots that we were able to find. Our team believes that a camera mounted higher and with a smaller <a href="https://ipvm.com/reports/testing-camera-height">angle of incidence</a> provides a better view of a parking lot, thus able to determine which spots are empty and which are occupied. Unfortunately, not all locations are able to get cameras high enough to accomplish this, so additionaly training is needed to account for these angles.
 
    Camera 1         |  Camera 2         |  Camera 3
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/2012-09-11_15_38_53_jpg.rf.bcdabdb175b85ebb981248ddc666e1d7.jpg)  | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/2012-12-21_17_25_13_jpg.rf.f1800300d28b08e400977e1b74594f88.jpg)  |  ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/2013-03-05_09_45_04_jpg.rf.e8589d4a1ec587d59d96187a21b6568e.jpg)
 
 
-Below is an image that was inferenced using a model trained just on the PKLot dataset. The model performed inadequately in detecting most parking spots in the image and even mistakenly identified trees as parking spots. The problem was not limited to this parking lot, but it serves as an example of how even though the model performed well on its test set it may not work well if deployed.
+Below is an image that was inferred using a model trained just on the PKLot dataset. The model performed inadequately in detecting most parking spots in the image and even mistakenly identified trees as parking spots. The problem was not limited to this parking lot, but it serves as an example of how even though the model performed well on its test set it may not work well if deployed.
 <br><br>
 
 ![Image of bad parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/issue1.png)
@@ -101,7 +101,7 @@ Below is an image that was inferenced using a model trained just on the PKLot da
 :-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_f1.png) 
 
-### Inferenced images
+### Inferred images
 ![Image of sunny parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/sunny1.png)
 ![Image of snow parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow1.png)
 ![Image of snow parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow2.png)
