@@ -1,5 +1,10 @@
 # Open Parking Spot Detection
-### DSBA 6156 - Applied Machine Learning
+### DSBA 6156 - Applied Machine Learning (Spring 2023)
+### Professor: Dr. Rick Chakra
+
+- <a href="https://github.com/pruthvirajcyn">Pruthvi Raj</a>
+- <a href="https://github.com/griffincorriher">Griffin Corriher</a>
+- <a href="https://github.com/hpath9797">Harminder Pathania</a>
 
 ## Table of contents
 - [General info](#general-info)
