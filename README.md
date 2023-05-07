@@ -54,7 +54,7 @@ the ~150 additional images that were collected and a way to export the COCO form
 ### Augmentations
 Images were passed through an augmentation pipeline that added snow and rain effects to the original images. The <a href="https://github.com/UjjwalSaxena/Automold--Road-Augmentation-Library">Automold</a> library was chosen because it was designed to introduce real world scenarios for training neural networks of autonomous vehicles. This library provides many real world example augmentations, but our focus was only on snow and rain. The PKLot dataset, as well as the non-snow images that were collected, were passed through the augmentation pipeline exponentially increasing the size of our dataset.
 
-   Pre augmentation         |  Snow augmentation         |  Rain augmentation
+   Pre-augmentation         |  Snow augmentation         |  Rain augmentation
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/normal1.png)  | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snowaugment1.png)  |  ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rainaugment1.png)
 
