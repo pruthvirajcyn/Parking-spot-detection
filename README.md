@@ -78,22 +78,25 @@ The initial model trained on the PKLot dataset performed very well on the holdou
 
 Below is an image that was inferenced using a model trained just on the PKLot dataset. The model performed inadequately in detecting most parking spots in the image and even mistakenly identified trees as parking spots. The problem was not limited to this parking lot, but it serves as an example of how even though the model performed well on its test set it may not work well if deployed.
 <br><br>
-   PKLot dataset         
-:-------------------------:
-![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/pklot_matrix.png) |
-![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/pklot_f1.png)
+### PKLot dataset
+
+  Confusion matrix        | F1 score curve
+:-------------------------:|:-------------------------:
+![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/pklot_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/pklot_f1.png)
 
 ## Results
 ### Metrics
-   Snow augmented Dataset         
-:-------------------------:
-![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_matrix.png) |
-![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_f1.png)
+### Snow augmented dataset          
 
-   Rain augmented dataset         
-:-------------------------:
-![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_matrix.png) |
-![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_f1.png)
+  Confusion matrix        | F1 score curve
+:-------------------------:|:-------------------------:
+![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_f1.png) 
+
+ ### Rain augmented dataset          
+
+  Confusion matrix        | F1 score curve
+:-------------------------:|:-------------------------:
+![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_f1.png) 
 
 ### Inferenced images
 ![Image of sunny parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/sunny1.png)
