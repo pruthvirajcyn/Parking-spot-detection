@@ -81,22 +81,22 @@ Below is an image that was inferenced using a model trained just on the PKLot da
 
 ![Image of bad parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/issue1.png)
 
+## Results
+### Metrics
 <h3 align="center">PKLot dataset</h3>
 
   Confusion matrix        | F1 score curve
 :-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/pklot_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/pklot_f1.png)
 
-## Results
-### Metrics
-<h3 align="center">Snow augmented dataset</h3>         
+<h3 align="center">Snow augmented dataset</h3> 
 
   Confusion matrix        | F1 score curve
 :-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_f1.png) 
 
-<h3 align="center">Rain augmented dataset<h3/>          
-
+<h3 align="center">Rain augmented dataset<h3/> 
+  
   Confusion matrix        | F1 score curve
 :-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/rain_f1.png) 
