@@ -78,7 +78,7 @@ The initial model trained on the PKLot dataset performed very well on the holdou
 
 Below is an image that was inferenced using a model trained just on the PKLot dataset. The model performed inadequately in detecting most parking spots in the image and even mistakenly identified trees as parking spots. The problem was not limited to this parking lot, but it serves as an example of how even though the model performed well on its test set it may not work well if deployed.
 <br><br>
-### PKLot dataset
+<h3 align="center">PKLot dataset</h3>
 
   Confusion matrix        | F1 score curve
 :-------------------------:|:-------------------------:
@@ -86,13 +86,13 @@ Below is an image that was inferenced using a model trained just on the PKLot da
 
 ## Results
 ### Metrics
-### Snow augmented dataset          
+<h3 align="center">Snow augmented dataset</h3>         
 
   Confusion matrix        | F1 score curve
 :-------------------------:|:-------------------------:
 ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_matrix.png) | ![](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow_f1.png) 
 
- ### Rain augmented dataset          
+<h3 align="center">Rain augmented dataset<h3/>          
 
   Confusion matrix        | F1 score curve
 :-------------------------:|:-------------------------:
