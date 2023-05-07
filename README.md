@@ -109,4 +109,4 @@ Below is an image that was inferred using a model trained just on the PKLot data
 ![Image of snow parking spot detection](https://github.com/pruthvirajcyn/Parking-spot-detection/blob/main/images/snow4.png)
 
 ## Conclusion
-Overall the model trained on images augmented with snow and rain, additional images that captured additional security camera angles, and real world snow covered parking lots, performed well. There are still improvements that could be made, but a dataset limited to three camera angles and the difficulty in finding additional images make that a challenge.
+Overall the model trained on images augmented with snow and rain, additional images that captured additional security camera angles, and real world snow covered parking lots, performed well. Some parking spots have bounding boxes for both classes covering the same area. There are still improvements that could be made, but a dataset limited to three camera angles and the difficulty in finding additional images make that a challenge. 
